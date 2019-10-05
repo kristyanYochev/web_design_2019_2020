@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+body {
+    background-color: hsl(28, 100%, 50%);
+    background-image: url("background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: black;
+    font-family: "Roboto", "Helverica Neue", Arial, Helvetica, sans-serif;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    margin: 64px auto 0;
+    background-color: hsl(28, 100%, 60%);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 5px 7px 200px -40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    padding: 1px;
+}
+
+.links {
+    flex: 1;
+    text-align: end;
+    width: 100%;
+    margin: 4px 0;
+}
+
+.links a {
+    color: rgba(197, 0, 3);
+}
+
+.links a:hover {
+    text-decoration: none;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+.input-wrapper .form-input {
+    display: block;
+    flex: 1;
+
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 7px 200px 0px rgba(0, 0, 0, 0.6);
+
+    border-radius: 1000px; /* This is a hack for the pill-like shape */
+    border-width: 2px;
+    border-color: rgb(135, 135, 135) rgb(135, 135, 135) rgb(217, 217, 217) rgb(217, 217, 217);
+    border-style: solid;
+}
+
+.input-wrapper .form-input::placeholder {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.button {
+    position: relative;
+
+    padding: 12px 8px;
+    text-align: center;
+    width: 100%;
+
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+
+    border-radius: 1000px; /* Again... hack */
+    transform: perspective(1px) translateZ(0px); /* Needed for the aimation */
+}
+
+.primary-button {
+    border: 0 solid black;
+
+    background-color: rgb(197, 0, 3);
+    color: white;
+}
+
+.primary-button::before {
+    content: "";
+    position: absolute;
+
+    background-color: rgb(160, 4, 160);
+    border-radius: 1000px; /* Again... hack */
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    --closed-width: 100%;
+
+    clip-path: polygon(var(--closed-width) 0, 100% 0,  100% 100%, var(--closed-width) 100%);
+
+    z-index: -1;
+    transition: 0.2s ease-in;
+}
+
+.primary-button:hover::before {
+    --closed-width: 0%;
+}
+
+.secondary-button {
+    border: 4px solid rgb(197, 0, 3);
+    background-color: transparent;
+
+    transition: color 0.2s ease-in;
+}
+
+.secondary-button:hover {
+    color: white;
+}
+
+.secondary-button::before {
+    content: "";
+    position: absolute;
+
+    background-color: rgb(197, 0, 3);
+    border-radius: 1000px;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    --closed-height: 100%;
+
+    clip-path: polygon(0 var(--closed-height), 100% var(--closed-height), 100% 100%, 0 100%);
+
+    z-index: -1;
+    transition: 0.2s ease-in;
+}
+
+.secondary-button:hover::before {
+    --closed-height: 0%;
+}
