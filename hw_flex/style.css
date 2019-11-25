@@ -96,3 +96,10 @@ body {
     padding: 20px;
     background: #999;
 }
+
+@media screen and (max-width: 768px) {
+    .photo-container {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
